@@ -1,0 +1,112 @@
+//Main
+
+Public class Main {
+    public static void main(String[] args) {
+
+        Kwadrat kwadrat = new Kwadrat(5);
+        Romb romb = new Romb(8,7);
+        Rownoleglobok rownoleglobok = new Rownoleglobok(3,4,5);
+
+        Figura[] figura = {kwadrat,romb,rownoleglobok};
+
+        for(int i = 0; i < figura.length; i++){
+            System.out.println("\nObwĂłd i pole " + figura[i] + " wynosi kolejno: " + figura[i].obliczObwod()+"cm i "+figura[i].obliczPole()+"cm^2");
+        }
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------
+
+//Figura
+
+public interface Figura {
+    int obliczPole();
+    int obliczObwod();
+}
+
+-------------------------------------------------------------------------------------------------------------------------
+
+//Kwadrat
+
+public class Kwadrat implements Figura {
+    private int a;
+
+    public Kwadrat(int a) {
+        this.a = a;
+    }
+
+    @Override
+    public int obliczObwod() {
+        return a * 4;
+    }
+
+    @Override
+    public int obliczPole() {
+        return a * a;
+    }
+
+    @Override
+    public String toString() {
+        return "kwadratu";
+    }
+}
+
+------------------------------------------------------------------------------------------------------
+
+//Romb
+
+public class Romb implements Figura{
+    private int a;
+    private int h;
+
+    public Romb(int a, int h) {
+        this.a = a;
+        this.h = h;
+    }
+
+    @Override
+    public int obliczObwod() {
+        return a * 4;
+    }
+
+    @Override
+    public int obliczPole() {
+        return a * h;
+    }
+
+    @Override
+    public String toString() {
+        return "rombu";
+    }
+}
+
+--------------------------------------------------------------------------------------------------------
+
+//Równoległobok
+
+public class Rownoleglobok implements Figura {
+    private int a;
+    private int b;
+    private int h;
+
+    public Rownoleglobok(int a, int b, int h) {
+        this.a = a;
+        this.b = b;
+        this.h = h;
+    }
+
+    @Override
+    public int obliczObwod() {
+        return ((2*a)+(2*b));
+    }
+
+    @Override
+    public int obliczPole() {
+        return a * h;
+    }
+
+    @Override
+    public String toString() {
+        return "rĂłwnolegĹ‚oboku";
+    }
+}
